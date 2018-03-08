@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/angular.min.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>Youtube app</title>
+</head>
+<body data-ng-app="app" ng-controller="MainCtrl">
+
+<div class="container-fluid" style="text-align: center">
+    <br>
+    <br>
+    <div class="form-inline" style="text-align: center">
+        <label for="search"> Enter Keyword</label>
+        <input id="search" class="form-control" ng-model="my.search">
+    </div>
+    <div ng-repeat="data in response1" style="margin: 10px;float: left;">
+        <div class="card" style="width: 18rem;">
+            <iframe class="card-img-top" src="{{url(data.id.videoId)}}"></iframe>
+            <div class="card-body">
+                <h5 class="card-title">{{data.snippet.title}}</h5>
+                <p class="card-text">{{data.snippet.description}}</p>
+                <p class="card-text">{{data.id.kind}}</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script src="app.js"></script>
+
+</body>
+</html>
